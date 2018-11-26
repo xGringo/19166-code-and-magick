@@ -1,18 +1,20 @@
 'use strict';
 
-var DataWizards = {
-  COUNT: 4,
-  NAMES: ['Иван', 'Хуан Себастьян', 'Мария', 'Кристоф', 'Виктор', 'Юлия', 'Люпита', 'Вашингтон'],
-  SURNAMES: ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг'],
-  COAT_COLOR: ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'],
-  EYES_COLOR: ['black', 'red', 'blue', 'yellow', 'green']
+var dataWizards = {
+  count: 4,
+  names: ['Иван', 'Хуан Себастьян', 'Мария', 'Кристоф', 'Виктор', 'Юлия', 'Люпита', 'Вашингтон'],
+  surnames: ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг'],
+  coatColor: ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'],
+  eyesColor: ['black', 'red', 'blue', 'yellow', 'green']
 };
 var userDialog = document.querySelector('.setup');
 var setupSimilarWizards = document.querySelector('.setup-similar');
 var similarListElement = userDialog.querySelector('.setup-similar-list');
 var similarWizardTemplate = document.querySelector('#similar-wizard-template').content;
+
 userDialog.classList.remove('hidden');
 setupSimilarWizards.classList.remove('hidden');
+
 cloneWizards();
 
 function cloneWizards() {
@@ -33,21 +35,21 @@ function renderWizard(wizard) {
 }
 
 function generateWizards() {
-  var shuffleWizardNames = DataWizards.NAMES.sort(compareRandom);
-  var shuffleWizardSurnames = DataWizards.SURNAMES.sort(compareRandom);
+  var shuffleWizardNames = dataWizards.names.sort(compareRandom);
+  var shuffleWizardSurnames = dataWizards.surnames.sort(compareRandom);
   var wizards = [];
-  for (var i = 0; i < DataWizards.COUNT; i++) {
+  for (var i = 0; i < dataWizards.count; i++) {
     wizards.push({
       names: shuffleWizardNames[i],
       surnames: shuffleWizardSurnames[i],
-      coatColor: getRandomElement(DataWizards.COAT_COLOR),
-      eyesColor: getRandomElement(DataWizards.EYES_COLOR)
+      coatColor: getRandomElement(dataWizards.coatColor),
+      eyesColor: getRandomElement(dataWizards.eyesColor)
     });
   }
   return wizards;
 }
 
-function compareRandom(a, b) {
+function compareRandom() {
   return Math.random() - 0.5;
 }
 
