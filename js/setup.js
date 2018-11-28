@@ -34,9 +34,7 @@ var makeWizards = function (wizardsObject) {
   return wizards;
 };
 
-cloneWizards();
-
-function cloneWizards() {
+var cloneWizards = function () {
   var similarWizards = makeWizards();
   var fragment = document.createDocumentFragment();
   for (var i = 0; i < similarWizards.length; i++) {
@@ -45,7 +43,7 @@ function cloneWizards() {
   similarListElement.appendChild(fragment);
 }
 
-function renderWizard(wizard) {
+var renderWizard = function (wizard) {
   var wizardElement = similarWizardTemplate.cloneNode(true);
   wizardElement.querySelector('.setup-similar-label').textContent = wizard.names;
   wizardElement.querySelector('.wizard-coat').style.fill = wizard.coatColors;
@@ -53,8 +51,7 @@ function renderWizard(wizard) {
   return wizardElement;
 }
 
-function compareRandom() {
-  return Math.random() - 0.5;
-}
+cloneWizards();
+
 
 
