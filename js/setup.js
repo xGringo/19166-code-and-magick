@@ -11,8 +11,6 @@
 
   document.querySelector('.setup').classList.remove('hidden');
 
-  var setupSimilarWizards = document.querySelector('.setup-similar');
-
   var getRandomElement = function (array) {
     var randomInt = Math.floor(Math.random() * (array.length - 1));
     return array[randomInt];
@@ -44,6 +42,7 @@
 
   var renderWizards = function () {
     var similarListElement = document.querySelector('.setup-similar-list');
+    var setupSimilarWizards = document.querySelector('.setup-similar');
     var similarWizards = makeWizards();
     var fragment = document.createDocumentFragment();
 
